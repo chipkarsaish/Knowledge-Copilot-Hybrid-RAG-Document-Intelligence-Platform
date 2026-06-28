@@ -1,0 +1,7 @@
+fastapi
+langchain
+langchain_community
+langchain_huggingface
+qdrant-client
+rank_bm25
+sqlite3
