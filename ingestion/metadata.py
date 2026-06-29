@@ -24,8 +24,8 @@ from pathlib import Path
 import sqlite3
 from datetime import datetime
 from dataclasses import dataclass
-from logging import logging
-from exception import CustomException
+from core.logger import logging
+from core.exception import CustomException
 
 
 class MetadataStore:
@@ -85,7 +85,7 @@ class MetadataStore:
             cursor.execute("""
 
             INSERT INTO documents(document_uuid, filename, filepath, file_hash, pages, chunks, embedding_model, upload_time, status)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 
             """,
 

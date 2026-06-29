@@ -1,11 +1,11 @@
 from fastapi import UploadFile
-from .loder import DocumentLoader
-from .reciever import FileReceiver
-from .splitter import DocumentSplitter
-from .embedder import DocumentEmbedder
-from .bm25_store import BM25Store
-from .vector_store import VectorStore
-from .metadata import MetadataStore
+from ingestion.loder import DocumentLoader
+from ingestion.reciever import FileReceiver
+from ingestion.splitter import DocumentSplitter
+from ingestion.embedder import DocumentEmbedder
+from ingestion.bm25_store import BM25Store
+from ingestion.vector_store import VectorStore
+from ingestion.metadata import MetadataStore
 import hashlib
 from pathlib import Path
 import uuid

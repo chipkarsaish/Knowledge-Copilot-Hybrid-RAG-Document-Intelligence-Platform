@@ -1,7 +1,7 @@
 from langchain_core.documents import Document
 from langchain_huggingface import HuggingFaceEmbeddings
-from logging import logging
-from exception import CustomException
+from core.logger import logging
+from core.exception import CustomException
 
 class DocumentEmbedder:
 

@@ -1,0 +1,55 @@
+[2026-06-29 23:33:56,056] 36 root - INFO - Create a new collection
+[2026-06-29 23:33:56,056] 43 root - INFO - Create Meta data TAble
+[2026-06-29 23:33:56,673] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+[2026-06-29 23:33:56,674] 932 huggingface_hub.utils._http - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-06-29 23:33:56,690] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ibm-granite/granite-embedding-small-english-r2/2ab6fa8ea2d674564defd37171ae19079b864b33/modules.json "HTTP/1.1 200 OK"
+[2026-06-29 23:33:56,982] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+[2026-06-29 23:33:56,985] 1001 sentence_transformers.base.model - INFO - Loading SentenceTransformer model from ibm-granite/granite-embedding-small-english-r2.
+[2026-06-29 23:33:57,288] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+[2026-06-29 23:33:57,595] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+[2026-06-29 23:33:57,613] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ibm-granite/granite-embedding-small-english-r2/2ab6fa8ea2d674564defd37171ae19079b864b33/README.md "HTTP/1.1 200 OK"
+[2026-06-29 23:33:57,903] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+[2026-06-29 23:33:57,923] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ibm-granite/granite-embedding-small-english-r2/2ab6fa8ea2d674564defd37171ae19079b864b33/modules.json "HTTP/1.1 200 OK"
+[2026-06-29 23:33:58,212] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-06-29 23:33:58,227] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ibm-granite/granite-embedding-small-english-r2/2ab6fa8ea2d674564defd37171ae19079b864b33/sentence_bert_config.json "HTTP/1.1 200 OK"
+[2026-06-29 23:33:58,518] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+[2026-06-29 23:33:58,826] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-06-29 23:33:58,841] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ibm-granite/granite-embedding-small-english-r2/2ab6fa8ea2d674564defd37171ae19079b864b33/config.json "HTTP/1.1 200 OK"
+[2026-06-29 23:33:59,337] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+[2026-06-29 23:33:59,644] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+[2026-06-29 23:33:59,951] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+[2026-06-29 23:34:00,258] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+[2026-06-29 23:34:00,565] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-06-29 23:34:00,585] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ibm-granite/granite-embedding-small-english-r2/2ab6fa8ea2d674564defd37171ae19079b864b33/tokenizer_config.json "HTTP/1.1 200 OK"
+[2026-06-29 23:34:00,873] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-06-29 23:34:00,893] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ibm-granite/granite-embedding-small-english-r2/2ab6fa8ea2d674564defd37171ae19079b864b33/config.json "HTTP/1.1 200 OK"
+[2026-06-29 23:34:01,180] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-06-29 23:34:01,198] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ibm-granite/granite-embedding-small-english-r2/2ab6fa8ea2d674564defd37171ae19079b864b33/config.json "HTTP/1.1 200 OK"
+[2026-06-29 23:34:01,487] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-06-29 23:34:01,505] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ibm-granite/granite-embedding-small-english-r2/2ab6fa8ea2d674564defd37171ae19079b864b33/tokenizer_config.json "HTTP/1.1 200 OK"
+[2026-06-29 23:34:01,794] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-06-29 23:34:01,813] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ibm-granite/granite-embedding-small-english-r2/2ab6fa8ea2d674564defd37171ae19079b864b33/tokenizer_config.json "HTTP/1.1 200 OK"
+[2026-06-29 23:34:02,101] 1025 httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/ibm-granite/granite-embedding-small-english-r2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+[2026-06-29 23:34:02,410] 1025 httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/ibm-granite/granite-embedding-small-english-r2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+[2026-06-29 23:34:02,971] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-embedding-small-english-r2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-06-29 23:34:02,990] 1025 httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ibm-granite/granite-embedding-small-english-r2/2ab6fa8ea2d674564defd37171ae19079b864b33/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+[2026-06-29 23:34:03,331] 1025 httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/ibm-granite/granite-embedding-small-english-r2 "HTTP/1.1 200 OK"
+[2026-06-29 23:34:03,395] 188 root - INFO - Get Document by Hash of Document
+[2026-06-29 23:34:03,397] 27 root - INFO - Chunk the Original document
+[2026-06-29 23:34:03,403] 20 root - INFO - Start Embedding
+[2026-06-29 23:35:11,525] 68 root - INFO - Insert new vectors of the Document
+[2026-06-29 23:35:11,568] 16 root - INFO - Build the bm25 storage for Documents
+[2026-06-29 23:35:11,576] 81 root - INFO - Insert the Document info in the meta-database
+[2026-06-29 23:35:13,081] 219 root - INFO - Listing all indexed documents
+[2026-06-29 23:35:13,082] 49 root - INFO - Loading BM25 index
+[2026-06-29 23:35:13,084] 59 root - INFO - BM25 index loaded successfully.
+[2026-06-29 23:35:13,085] 125 root - INFO - Get the document info
+[2026-06-29 23:35:13,086] 104 root - INFO - Delete the Document related vectors
+[2026-06-29 23:35:13,088] 133 root - INFO - Removing document e28905a7-8ca7-458c-81a9-bbf1e4981aef from BM25 index
+[2026-06-29 23:35:13,088] 49 root - INFO - Loading BM25 index
+[2026-06-29 23:35:13,092] 59 root - INFO - BM25 index loaded successfully.
+[2026-06-29 23:35:13,092] 120 root - INFO - Deleting BM25 index
+[2026-06-29 23:35:13,093] 125 root - INFO - BM25 index deleted successfully.
+[2026-06-29 23:35:13,094] 243 root - INFO - Deleting document: e28905a7-8ca7-458c-81a9-bbf1e4981aef
+[2026-06-29 23:35:13,177] 258 root - INFO - Document deleted successfully: e28905a7-8ca7-458c-81a9-bbf1e4981aef
+[2026-06-29 23:35:13,178] 219 root - INFO - Listing all indexed documents

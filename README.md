@@ -86,3 +86,57 @@ Here are all the modules along with the classes and methods they contain:
 
 
 
+Knowledge-Copilot/
+├── api/                        # 🌐 FastAPI web endpoints (Routes)
+│   ├── __init__.py
+│   ├── ingestion_routes.py     # e.g., @app.post("/upload")
+│   └── retrieval_routes.py     # e.g., @app.post("/ask")
+│
+├── services/                   # 🧠 Orchestration & Business Logic
+│   ├── __init__.py
+│   ├── ingestion_service.py    # (You just moved this here!)
+│   └── retrieval_service.py    # (You will build this next)
+│
+├── ingestion/                  # 📥 Low-level Data Processing modules
+│   ├── __init__.py
+│   ├── loder.py                # Document loaders
+│   ├── splitter.py             # Chunking logic
+│   └── embedder.py             # HuggingFace embeddings
+│
+├── retrieval/                  # 📤 Low-level Query Processing modules
+│   ├── __init__.py
+│   ├── dense.py                # Qdrant search logic
+│   ├── sparse.py               # BM25 search logic
+│   └── reranker.py             # Cross-encoder / RRF logic
+│
+├── stores/                     # 💾 Database / Storage Interfaces
+│   ├── __init__.py
+│   ├── vector_store.py         # Qdrant interactions
+│   ├── bm25_store.py           # Pickle/BM25 interactions
+│   └── metadata_store.py       # SQLite interactions
+│
+├── core/                       # ⚙️ Application Utilities & Config
+│   ├── __init__.py
+│   ├── config.py               # Environment variables & constants
+│   ├── exception.py            # CustomException definitions
+│   └── logger.py               # Logging configuration
+│
+├── schemas/                    # 📄 Pydantic Models for Data Validation
+│   ├── __init__.py
+│   ├── requests.py             # e.g., AskQuestionRequest
+│   └── responses.py            # e.g., IngestionResponse
+│
+├── storage/                    # 📁 Local Storage (ADD TO .gitignore)
+│   ├── uploads/                # Temporarily saved PDFs/Txts
+│   ├── qdrant_db/              # Persistent local vector db
+│   └── metadata.db             # SQLite database file
+│
+├── logs/                       # 📝 Log files (ADD TO .gitignore)
+├── tests/                      # 🧪 Automated Tests
+│   ├── __init__.py
+│   ├── test_ingestion.py       # (Move your test script here!)
+│   └── test_retrieval.py
+│
+├── requirements.txt
+├── main.py                     # 🚀 The FastAPI Application Entrypoint
+└── README.md

@@ -3,8 +3,8 @@ import pickle
 
 from langchain_core.documents import Document
 from rank_bm25 import BM25Okapi
-from logging import logging
-from exception import CustomException
+from core.logger import logging
+from core.exception import CustomException
 
 
 class BM25Store:

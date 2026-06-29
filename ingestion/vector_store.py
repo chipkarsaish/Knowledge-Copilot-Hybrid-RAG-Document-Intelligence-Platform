@@ -18,8 +18,8 @@ from qdrant_client.models import (
     MatchValue
 
 )
-from logging import logging
-from exception import CustomException
+from core.logger import logging
+from core.exception import CustomException
 
 
 class VectorStore:
