@@ -128,3 +128,33 @@ class BM25Store:
 
         except Exception as e:
             raise CustomException(e)
+        
+    def delete_document(self, document_uuid: str):
+        logging.info(f"Removing document {document_uuid} from BM25 index")
+        try:
+            data = self.load()
+            if data is None:
+                return
+
+            documents = data["documents"]
+            
+            # Filter out all chunks that belong to the target document_uuid
+            remaining_documents = [
+                doc for doc in documents 
+                if doc.metadata.get("document_uuid") != document_uuid
+            ]
+
+            # If the lengths are the same, the document wasn't in here
+            if len(remaining_documents) == len(documents):
+                logging.info("Document not found in BM25 index.")
+                return
+
+            # Rebuild the BM25 index with the remaining documents
+            if len(remaining_documents) > 0:
+                self.build(remaining_documents)
+            else:
+                # If no documents are left, just delete the whole index file
+                self.delete_index()
+
+        except Exception as e:
+            raise CustomException(e)
