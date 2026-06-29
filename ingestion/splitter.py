@@ -1,5 +1,7 @@
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from logging import logging
+from exception import CustomException
 
 
 class DocumentSplitter:
@@ -22,11 +24,15 @@ class DocumentSplitter:
         )
 
     def split(self, documents: list[Document], doc_uuid: str) -> list[Document]:
-        chunks = self.text_splitter.split_documents(documents)
+        logging.info("Chunk the Original document")
+        try:
+            chunks = self.text_splitter.split_documents(documents)
 
-        # Add chunk ids
-        for idx, chunk in enumerate(chunks):
-            chunk.metadata["chunk_id"] = idx
-            chunk.metadata["document_uuid"] = doc_uuid
+            # Add chunk ids
+            for idx, chunk in enumerate(chunks):
+                chunk.metadata["chunk_id"] = idx
+                chunk.metadata["document_uuid"] = doc_uuid
 
-        return chunks
+            return chunks
+        except Exception as e:
+            raise CustomException(e)

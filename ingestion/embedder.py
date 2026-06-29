@@ -1,6 +1,7 @@
 from langchain_core.documents import Document
 from langchain_huggingface import HuggingFaceEmbeddings
-
+from logging import logging
+from exception import CustomException
 
 class DocumentEmbedder:
 
@@ -16,12 +17,15 @@ class DocumentEmbedder:
         )
 
     def embed(self, chunks: list[Document]) -> list[list[float]]:
+        logging.info("Start Embedding")
+        try: 
+            texts = [
+                chunk.page_content
+                for chunk in chunks
+            ]
 
-        texts = [
-            chunk.page_content
-            for chunk in chunks
-        ]
+            embeddings = self.embedding_model.embed_documents(texts)
 
-        embeddings = self.embedding_model.embed_documents(texts)
-
-        return embeddings
+            return embeddings
+        except Exception as e:
+            raise CustomException(e)

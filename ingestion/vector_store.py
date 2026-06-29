@@ -3,64 +3,147 @@ from uuid import uuid4
 from langchain_core.documents import Document
 
 from qdrant_client import QdrantClient
-from qdrant_client.models import Distance, VectorParams, PointStruct
+from qdrant_client.models import (
+
+    PointStruct,
+
+    VectorParams,
+
+    Distance,
+
+    Filter,
+
+    FieldCondition,
+
+    MatchValue
+
+)
+from logging import logging
+from exception import CustomException
 
 
 class VectorStore:
 
-    def __init__(self, collection_name: str = "knowledge_base", vector_size: int = 768):
-
+    def __init__(self, client: QdrantClient, collection_name: str, vector_size: int = 768):
+        self.client = client
         self.collection_name = collection_name
+        self.vector_size = vector_size
+        self._create_collection()
 
-        self.client = QdrantClient(
-            host="localhost",
-            port=6333
-        )
 
-        collections = [
-            c.name
-            for c in self.client.get_collections().collections
-        ]
+    # Create Collection
+    def _create_collection(self):
+        logging.info("Create a new collection")
+        try:
+            collections = self.client.get_collections().collections
 
-        if self.collection_name not in collections:
+            existing = [
 
-            self.client.create_collection(
-                collection_name=self.collection_name,
-                vectors_config=VectorParams(
-                    size=vector_size,
-                    distance=Distance.COSINE
+                collection.name
+
+                for collection in collections
+
+            ]
+
+            if self.collection_name not in existing:
+
+                self.client.create_collection(
+
+                    collection_name=self.collection_name,
+
+                    vectors_config=VectorParams(
+
+                        size=self.vector_size,
+
+                        distance=Distance.COSINE
+
+                    )
+
                 )
-            )
+        except Exception as e:
+            raise CustomException(e)
 
-    def insert(self, chunks: list[Document], embeddings: list[list[float]]) -> None:
-        """
-        Insert document chunks into Qdrant.
-        """
+    # Insert
+    def insert(self, chunks: list[Document], embeddings: list[list[float]]):
+        logging.info("Insert new vectors of the Document")
+        try:
+            points = []
 
-        points = []
+            for chunk, embedding in zip(chunks, embeddings):
 
-        for chunk, embedding in zip(chunks, embeddings):
-
-            payload = {
-                "text": chunk.page_content,
-                **chunk.metadata
-            }
-
-            points.append(
-
-                PointStruct(
+                point = PointStruct(
 
                     id=str(uuid4()),
 
                     vector=embedding,
 
-                    payload=payload
+                    payload={
+
+                        "text": chunk.page_content,
+
+                        **chunk.metadata
+
+                    }
+
                 )
+
+                points.append(point)
+
+            self.client.upsert(
+
+                collection_name=self.collection_name,
+
+                points=points
+
             )
+        except Exception as e:
+            raise CustomException(e)
 
-        self.client.upsert(
+    # Delete Document
+    def delete(self, document_uuid: str):
+        logging.info("Delete the Document related vectors")
+        try:
+            self.client.delete(
 
-            collection_name=self.collection_name,
+                collection_name=self.collection_name,
 
-            points=points
-        )
+                points_selector=Filter(
+
+                    must=[
+
+                        FieldCondition(
+
+                            key="document_uuid",
+
+                            match=MatchValue(
+
+                                value=document_uuid
+
+                            )
+
+                        )
+
+                    ]
+
+                )
+
+            )
+        except Exception as e:
+            raise CustomException(e)
+
+
+    # Dense Search
+    def search(self, query_vector: list[float], top_k: int = 20):
+        logging.info("Search the vector for a query vector")
+        try:
+            return self.client.query_points(
+
+                collection_name=self.collection_name,
+
+                query=query_vector,
+
+                limit=top_k
+
+            ).points
+        except Exception as e:
+            raise CustomException(e)
