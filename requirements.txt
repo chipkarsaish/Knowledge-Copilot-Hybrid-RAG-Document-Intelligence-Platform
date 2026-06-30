@@ -6,3 +6,7 @@ qdrant-client
 rank_bm25
 sqlite3
 sentence-transformers
+uvicorn
+python-multipart
+pypdf
+streamlit

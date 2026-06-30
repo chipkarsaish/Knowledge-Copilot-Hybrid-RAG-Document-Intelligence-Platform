@@ -140,3 +140,27 @@ Knowledge-Copilot/
 ├── requirements.txt
 ├── main.py                     # 🚀 The FastAPI Application Entrypoint
 └── README.md
+
+
+
+📱 LAYER 1: The Client (Streamlit UI)
+      │ 
+      │ (Sends HTTP Request over the internet: "What is the Copilot?")
+      ▼
+🌐 LAYER 2: The API Routes (FastAPI)
+      │   - Acts as the receptionist. 
+      │   - Checks if the JSON payload is valid.
+      │   - Immediately hands the question to the Service layer.
+      ▼
+🧠 LAYER 3: The Services (IngestionService / RetrievalService)
+      │   - Acts as the Manager.
+      │   - Says: "Okay, I need to get chunks, rerank them, and ask the LLM."
+      │   - It delegates the actual heavy lifting to the workers below.
+      ▼
+⚙️ LAYER 4: The Workers & Models (Dense, Sparse, Cross-Encoder, LLM)
+      │   - The IBM Granite model turns the question into math.
+      │   - The Ettin model reads and scores the text.
+      │   - The LLM writes the final English answer.
+      ▼
+💾 LAYER 5: The Data Stores (Qdrant, BM25, SQLite)
+          - The filing cabinets where the actual text and vectors live.
