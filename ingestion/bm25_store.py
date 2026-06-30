@@ -85,7 +85,7 @@ class BM25Store:
             bm25 = data["bm25"]
             documents = data["documents"]
 
-            query_tokens = self._tokenize(query)
+            query_tokens = query.split()
 
             scores = bm25.get_scores(query_tokens)
 
