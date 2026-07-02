@@ -10,3 +10,7 @@ uvicorn
 python-multipart
 pypdf
 streamlit
+python-dotenv
+llama-cpp-python --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+langchain-community
+llama_cpp

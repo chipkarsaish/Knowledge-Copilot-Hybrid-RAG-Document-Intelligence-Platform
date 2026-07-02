@@ -9,20 +9,8 @@ from retrieval.sparse import SparseRetriever
 from retrieval.reranker import RRFReranker
 from retrieval.cross_encoder import EntropyReranker
 from services.retrieval_service import RetrievalService
-
-# We use the MockLLM here so it works out of the box. 
-# Swap this with ChatOpenAI or HuggingFacePipeline later!
-from langchain_core.language_models.llms import LLM
 from typing import Optional, List, Any
-class MockLLM(LLM):
-    def _call(self, prompt: str, stop: Optional[List[str]] = None, **kwargs: Any) -> str:
-        return """{
-            "answer": "This is a simulated answer from the Knowledge Copilot.",
-            "confidence_score": 0.95,
-            "used_source_ids": ["source_1"]
-        }"""
-    @property
-    def _llm_type(self) -> str: return "mock_llm"
+from langchain_openai import ChatOpenAI
 
 # 1. Initialize Stores (Saved to disk so data persists between server restarts!)
 print("Loading Databases...")
@@ -43,14 +31,21 @@ dense_retriever = DenseRetriever(embedder, vector_store)
 sparse_retriever = SparseRetriever(bm25_store)
 rrf = RRFReranker(k=60)
 entropy = EntropyReranker(model_name="cross-encoder/ettin-reranker-32m-v1")
-mock_llm = MockLLM()
+
+
+liquid_llm = ChatOpenAI(
+    base_url="http://localhost:1234/v1", 
+    api_key="lm-studio", # It doesn't matter what you put here, but it can't be blank!
+    temperature=0.3,
+    max_tokens=512
+)
 
 retrieval_service = RetrievalService(
     dense_retriever=dense_retriever,
     sparse_retriever=sparse_retriever,
     rrf_reranker=rrf,
     entropy_reranker=entropy,
-    llm=mock_llm
+    llm=liquid_llm
 )
 
 # Dependency Injection Functions

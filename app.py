@@ -111,7 +111,7 @@ with tab_manage:
                         res = requests.post(f"{FASTAPI_BASE_URL}/documents/upload", files=files)
                         
                         if res.status_code == 200:
-                            st.success(f"✅ Successfully ingested: {res.json().get('filename')}")
+                            st.success(f"✅ Successfully ingested: {uploaded_file.name}")
                         else:
                             st.error(f"Failed to upload: {res.text}")
                     except requests.exceptions.ConnectionError:
