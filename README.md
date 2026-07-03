@@ -56,7 +56,7 @@ cd Knowledge-Copilot
 
 ```
 
-**2. Install dependencies using `uv**`
+**2. Install dependencies using** `uv`
 
 ```bash
 # Install the core local PyTorch and Hugging Face libraries
