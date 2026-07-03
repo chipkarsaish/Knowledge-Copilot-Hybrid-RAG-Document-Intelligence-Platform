@@ -60,7 +60,7 @@ cd Knowledge-Copilot
 
 ```bash
 # Install the core local PyTorch and Hugging Face libraries
-uv add torch transformers langchain-huggingface qdrant-client fastapi uvicorn streamlit python-dotenv
+uv add -r requirements.txt
 
 ```
 
