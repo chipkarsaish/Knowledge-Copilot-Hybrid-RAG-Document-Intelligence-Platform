@@ -121,4 +121,5 @@ streamlit run app.py
 
 Navigate to the `localhost` URL provided by Streamlit to begin uploading documents and interacting with your fully local RAG Copilot!
 
-<img width="676" height="831" alt="1cbc2f1834104369bef39f4b58fc9e1e" src="https://github.com/user-attachments/assets/c7211b4d-0f1f-4e74-ad5f-598c3417c649" />
+<img width="1352" height="1662" alt="1cbc2f1834104369bef39f4b58fc9e1e-Picsart-AiImageEnhancer" src="https://github.com/user-attachments/assets/0101751b-cef4-4a37-9634-448fb37a9e3d" />
+
